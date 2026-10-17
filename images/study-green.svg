@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="21"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="#efe6d4"/>
+  <path d="M120 180 C 260 80, 520 120, 700 240 C 860 350, 820 620, 680 760 C 520 920, 240 980, 150 820 C 60 660, 40 360, 120 180 Z" fill="#6e8f62"/>
+  <path d="M220 260 C 360 200, 540 280, 600 420 C 660 570, 540 760, 380 800 C 240 830, 160 680, 190 520 C 210 400, 160 300, 220 260 Z" fill="#3f5c40" opacity="0.85"/>
+  <path d="M300 340 C 420 300, 520 390, 500 520 C 480 660, 360 720, 280 640 C 210 560, 230 390, 300 340 Z" fill="#c5d3a4" opacity="0.55"/>
+  <path d="M160 900 C 300 820, 560 900, 760 780" fill="none" stroke="#6b4c32" stroke-width="8" stroke-linecap="round"/>
+  <path d="M210 240 C 300 180, 430 210, 520 300" fill="none" stroke="#efe6d4" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity="0.18"/>
+</svg>

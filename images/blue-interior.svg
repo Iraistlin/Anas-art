@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1080">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="2"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.5"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1500" height="1080" fill="#d5dee7"/>
+  <path d="M0 0 H420 C 360 180, 390 360, 300 560 C 230 720, 280 860, 180 1080 H 0 Z" fill="#f4f7f8" opacity="0.85"/>
+  <path d="M1180 0 H1500 V1080 H 1240 C 1320 860, 1280 640, 1360 420 C 1420 250, 1340 120, 1180 0 Z" fill="#c5d0db"/>
+  <rect x="430" y="150" width="720" height="560" fill="#2f4f86"/>
+  <path d="M430 150 H1150 V360 C 900 420, 640 280, 430 360 Z" fill="#6e90b8" opacity="0.9"/>
+  <path d="M430 430 H1150 V710 H430 Z" fill="#243e6b"/>
+  <rect x="500" y="230" width="250" height="320" fill="#e7eef3" opacity="0.18"/>
+  <path d="M0 760 L 520 700 L 1040 760 L 1500 690 V 1080 H 0 Z" fill="#c3b29c"/>
+  <path d="M0 860 L 600 820 L 1100 900 L 1500 840 V 1080 H 0 Z" fill="#b09a82"/>
+  <rect width="1500" height="1080" filter="url(#grain)" opacity="0.2"/>
+</svg>
