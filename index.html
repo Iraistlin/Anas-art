@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ana — Paintings</title>
+  <meta name="description" content="Paintings by Ana. A small gallery of available work, with room to add new pieces as they leave the studio.">
+  <meta name="author" content="Ana">
+  <meta name="theme-color" content="#f3efe8">
+  <meta name="robots" content="index, follow">
+  <!-- Update the address below if the site moves to a custom domain. -->
+  <link rel="canonical" href="https://iraistlin.github.io/anas-art/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Ana">
+  <meta property="og:title" content="Ana — Paintings">
+  <meta property="og:description" content="Paintings by Ana. A small gallery of available work, with room to add new pieces as they leave the studio.">
+  <meta property="og:url" content="https://iraistlin.github.io/anas-art/">
+  <meta property="og:image" content="https://iraistlin.github.io/anas-art/images/harbor-morning.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ana — Paintings">
+  <meta name="twitter:description" content="Paintings by Ana. A small gallery of available work, with room to add new pieces as they leave the studio.">
+  <meta name="twitter:image" content="https://iraistlin.github.io/anas-art/images/harbor-morning.svg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ana",
+    "jobTitle": "Painter",
+    "url": "https://iraistlin.github.io/anas-art/"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the paintings</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#work">Ana</a>
+      <nav aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="work" class="wrap">
+      <div id="featured">
+        <noscript>
+          <p class="empty">This gallery needs JavaScript to show the paintings. The list itself lives in js/artworks.js.</p>
+        </noscript>
+      </div>
+      <div class="section-head">
+        <h2>All paintings</h2>
+        <p id="count" class="count"></p>
+      </div>
+      <div id="gallery" class="grid"></div>
+    </section>
+
+    <!-- Replace the About copy below with Ana's own words. -->
+    <section id="about" class="wrap about">
+      <p class="eyebrow">About</p>
+      <h2>The artist</h2>
+      <p class="placeholder-banner">Placeholder — replace this copy with Ana’s own words. Edit the About section in index.html.</p>
+      <div class="about-grid">
+        <p>Ana paints rooms, coastlines, and the ordinary objects that hold a day together. The paintings are built in thin layers and stay close to the color of real light.</p>
+        <p>New work is added here as it leaves the studio. Anything marked available can be asked about through the contact links below.</p>
+      </div>
+    </section>
+
+    <!-- Replace the email and social links. They are examples, not real accounts. -->
+    <section id="contact" class="wrap contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Write to the studio</h2>
+      <p class="lede">For a price, a studio visit, or news of new work.</p>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label">Email</span>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <span class="placeholder">Placeholder — replace this address</span>
+        </li>
+        <li>
+          <span class="contact-label">Instagram</span>
+          <a href="https://example.com">@ana.studio</a>
+          <span class="placeholder">Placeholder — replace this link</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Ana</p>
+      <p>The pictures on this site are placeholder studies. Replace them with photographs of the paintings.</p>
+    </div>
+  </footer>
+
+  <dialog id="detail" class="detail" aria-labelledby="detail-title">
+    <div class="detail-layout">
+      <div class="detail-photo">
+        <img id="detail-image" alt="">
+        <p id="detail-missing" class="missing" hidden>Image not found. Check the file name in js/artworks.js.</p>
+      </div>
+      <div class="detail-copy">
+        <button type="button" class="detail-close" id="detail-close" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <p class="eyebrow">Painting</p>
+        <h2 id="detail-title"></h2>
+        <dl id="detail-facts" class="detail-facts"></dl>
+        <p id="detail-description" class="detail-description"></p>
+        <div id="detail-buy" class="detail-buy"></div>
+        <div class="detail-nav">
+          <button type="button" id="detail-prev">Previous</button>
+          <button type="button" id="detail-next">Next</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/artworks.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
