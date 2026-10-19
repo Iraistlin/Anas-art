@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980">
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="4"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1400" height="980" fill="#f7f1e8"/>
+  <ellipse cx="700" cy="520" rx="420" ry="220" fill="#f3e4d4" opacity="0.7" filter="url(#soft)"/>
+  <path d="M160 700 C 360 560, 620 640, 860 500 C 1040 400, 1200 460, 1320 380" fill="none" stroke="#7f946f" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="460" cy="560" rx="70" ry="28" fill="#9db596" transform="rotate(-30 460 560)"/>
+  <ellipse cx="620" cy="500" rx="64" ry="26" fill="#b7c9aa" transform="rotate(20 620 500)"/>
+  <ellipse cx="980" cy="430" rx="68" ry="26" fill="#8eaa88" transform="rotate(-16 980 430)"/>
+  <ellipse cx="760" cy="620" rx="78" ry="56" fill="#f0d56a" filter="url(#soft)"/>
+  <ellipse cx="980" cy="560" rx="84" ry="60" fill="#e7c84e"/>
+  <ellipse cx="740" cy="600" rx="28" ry="16" fill="#f7e7a2" opacity="0.8"/>
+  <path d="M860 500 C 900 540, 940 540, 980 520" fill="none" stroke="#7f946f" stroke-width="3" stroke-linecap="round"/>
+  <rect width="1400" height="980" filter="url(#grain)" opacity="0.15"/>
+</svg>

@@ -90,11 +90,14 @@
         size: text(work && work.size),
         status: normalizeStatus(work && work.status),
         price: text(work && work.price),
+        framedPrice: text(work && work.framedPrice),
         image: imageSrc(work && work.image),
         featured: Boolean(work && work.featured),
         description: text(work && work.description),
         paypalLink: text(work && work.paypalLink),
         paypalButtonId: text(work && work.paypalButtonId),
+        framedPaypalLink: text(work && work.framedPaypalLink),
+        framedPaypalButtonId: text(work && work.framedPaypalButtonId),
         order: index
       };
     });
@@ -152,6 +155,15 @@
     price.className = "featured-price";
     price.textContent = priceLabel(work);
 
+    copy.append(kicker, heading, meta, price);
+
+    if (work.status === "available" && work.framedPrice) {
+      var framed = document.createElement("p");
+      framed.className = "featured-framed";
+      framed.textContent = "Framed " + formatPrice(work.framedPrice);
+      copy.appendChild(framed);
+    }
+
     var description = document.createElement("p");
     description.className = "featured-description";
     description.textContent = work.description;
@@ -162,7 +174,7 @@
     view.setAttribute("data-id", work.id);
     view.textContent = "View painting";
 
-    copy.append(kicker, heading, meta, price, description, view);
+    copy.append(description, view);
     article.append(photo, copy);
     featuredEl.appendChild(article);
   }
@@ -193,6 +205,14 @@
       if (work.status === "not-for-sale") meta.classList.add("is-held");
 
       button.append(frame, title, meta);
+
+      if (work.status === "available" && work.framedPrice) {
+        var framed = document.createElement("span");
+        framed.className = "card-framed";
+        framed.textContent = "Framed " + formatPrice(work.framedPrice);
+        button.appendChild(framed);
+      }
+
       galleryEl.appendChild(button);
     });
   }
@@ -228,12 +248,16 @@
 
     var facts = document.getElementById("detail-facts");
     facts.replaceChildren();
-    [
+    var rows = [
       ["Year", work.year],
       ["Medium", work.medium],
       ["Size", work.size],
       ["Price", priceLabel(work)]
-    ].forEach(function (row) {
+    ];
+    if (work.status === "available" && work.framedPrice) {
+      rows.push(["Framed", formatPrice(work.framedPrice)]);
+    }
+    rows.forEach(function (row) {
       if (!row[1]) return;
       var wrap = document.createElement("div");
       var dt = document.createElement("dt");
@@ -247,19 +271,19 @@
 
     var buy = document.getElementById("detail-buy");
     buy.replaceChildren();
-    var offer = buyOffer(work);
-    if (offer) {
-      var link = document.createElement("a");
-      link.className = "buy";
-      link.href = offer.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Buy now";
-      buy.appendChild(link);
+    var plain = buyOffer(work.paypalLink, work.paypalButtonId, work.status);
+    var framedOffer = buyOffer(work.framedPaypalLink, work.framedPaypalButtonId, work.status);
+    if (plain || framedOffer) {
+      var row = document.createElement("div");
+      row.className = "buy-row";
+      if (plain) row.appendChild(buyLink(plain, "Buy now", ""));
+      if (framedOffer) row.appendChild(buyLink(framedOffer, "Buy framed", "buy-framed"));
+      buy.appendChild(row);
       var note = document.createElement("p");
       note.className = "buy-note";
-      note.textContent = offer.placeholder
-        ? "Placeholder link — replace paypalLink before sharing this button. Checkout would open on PayPal."
+      var placeholder = (plain && plain.placeholder) || (framedOffer && framedOffer.placeholder);
+      note.textContent = placeholder
+        ? "Placeholder link — replace the PayPal fields before sharing these buttons. Checkout would open on PayPal."
         : "Checkout opens on PayPal.";
       buy.appendChild(note);
     }
@@ -268,17 +292,24 @@
     var next = document.getElementById("detail-next");
     prev.disabled = works.length < 2;
     next.disabled = works.length < 2;
-    prev.setAttribute("aria-label", "Previous painting");
-    next.setAttribute("aria-label", "Next painting");
 
     if (!dialog.open) dialog.showModal();
     setHash("#painting-" + work.id);
   }
 
+  function buyLink(offer, label, extraClass) {
+    var link = document.createElement("a");
+    link.className = "buy" + (extraClass ? " " + extraClass : "");
+    link.href = offer.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = label;
+    return link;
+  }
+
   function step(delta) {
     if (current < 0 || works.length < 2) return;
-    var index = (current + delta + works.length) % works.length;
-    show(index);
+    show((current + delta + works.length) % works.length);
   }
 
   function syncFromHash() {
@@ -290,30 +321,34 @@
     openById(decodeURIComponent(hash.slice("#painting-".length)));
   }
 
-  function buyOffer(work) {
-    if (work.status !== "available") return null;
-    var link = work.paypalLink;
-    var placeholder = /placeholder/i.test(link) || /placeholder/i.test(work.paypalButtonId);
+  function buyOffer(link, buttonId, status) {
+    if (status !== "available") return null;
+    var placeholder = /placeholder/i.test(link) || /placeholder/i.test(buttonId);
     var url = httpUrl(link);
-    if (!url && work.paypalButtonId && !/placeholder/i.test(work.paypalButtonId)) {
-      url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=" +
-        encodeURIComponent(work.paypalButtonId);
-    }
-    if (!url && work.paypalButtonId && /placeholder/i.test(work.paypalButtonId)) {
-      url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER";
-    }
+    if (!url && buttonId && !/placeholder/i.test(buttonId)) url = hosted(buttonId);
+    if (!url && buttonId && /placeholder/i.test(buttonId)) url = hosted("PLACEHOLDER");
     if (!url) return null;
     return { url: url, placeholder: placeholder };
+  }
+
+  function hosted(id) {
+    return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=" + encodeURIComponent(id);
   }
 
   function priceLabel(work) {
     if (work.status === "sold") return "Sold";
     if (work.status === "not-for-sale") return "Not for sale";
     if (!work.price) return "Price on request";
-    if (/^\$/.test(work.price) || /[a-z]/i.test(work.price)) return work.price;
-    var amount = Number(work.price.replace(/,/g, ""));
+    return formatPrice(work.price);
+  }
+
+  function formatPrice(price) {
+    var raw = text(price);
+    if (!raw) return "";
+    if (/^\$/.test(raw) || /[a-z]/i.test(raw)) return raw;
+    var amount = Number(raw.replace(/,/g, ""));
     if (Number.isFinite(amount)) return "$" + amount.toLocaleString("en-US");
-    return work.price;
+    return raw;
   }
 
   function normalizeStatus(value) {

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1300">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7eef0"/>
+      <stop offset="1" stop-color="#e5e2d8"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="5"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1000" height="1300" fill="url(#sky)"/>
+  <path d="M0 780 C 240 720, 520 840, 1000 750 V 1300 H 0 Z" fill="#d5ddd0"/>
+  <path d="M0 980 C 300 920, 680 1060, 1000 960 V 1300 H 0 Z" fill="#c5cbb8"/>
+  <g fill="none" stroke="#7d7468" stroke-linecap="round">
+    <path d="M160 1280 C 180 980, 230 760, 260 460" stroke-width="3"/>
+    <path d="M258 700 C 340 640, 390 700, 460 560" stroke-width="2"/>
+    <path d="M250 540 C 170 490, 150 420, 190 340" stroke-width="1.6"/>
+    <path d="M470 1280 C 490 1000, 540 820, 590 500" stroke-width="2.6"/>
+    <path d="M586 760 C 680 700, 740 760, 820 620" stroke-width="1.8"/>
+    <path d="M780 1280 C 800 1040, 760 860, 820 560" stroke-width="2.4"/>
+  </g>
+  <g fill="#e7cfc6">
+    <circle cx="190" cy="338" r="5"/>
+    <circle cx="462" cy="556" r="4"/>
+    <circle cx="820" cy="556" r="4.5"/>
+    <circle cx="700" cy="690" r="3.5"/>
+  </g>
+  <rect width="1000" height="1300" filter="url(#grain)" opacity="0.16"/>
+</svg>
