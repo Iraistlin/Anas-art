@@ -128,16 +128,16 @@ These stand in until the real paintings are ready. The four botanical cards and 
 | `images/strip-2.jpg` | A white rose bouquet | [Unsplash](https://unsplash.com/photos/1468327768560) |
 | `images/strip-3.jpg` | A couple | [Unsplash](https://unsplash.com/photos/1522673607200) |
 | `images/strip-4.jpg` | A vintage camera | [Unsplash](https://unsplash.com/photos/1495707902641) |
-| `images/strip-5.jpg` | A white dress on a stone terrace | [Unsplash](https://unsplash.com/photos/1469334031218) |
+| `images/strip-5.jpg` | A woman in a white dress on a garden terrace | [Pexels, photo 4729631](https://www.pexels.com/photo/4729631/), Leeloo The First |
 | `images/about-studio.jpg` | A woman painting outdoors | [Unsplash](https://unsplash.com/photos/1660092626225) |
 | `images/mark.jpg` | Rose, cropped for the round mark | [Unsplash](https://unsplash.com/photos/1496062031456) |
-| `images/garden-terrace.jpg` | A white dress on a stone terrace | [Unsplash](https://unsplash.com/photos/1469334031218) |
-| `images/on-the-canvas.jpg` | A hand painting on canvas | [Unsplash](https://unsplash.com/photos/1579965342575) |
-| `images/red-rose.jpg` | A red rose | [Unsplash](https://unsplash.com/photos/1494972308805) |
+| `images/garden-terrace.jpg` | A woman in a white dress on a garden terrace | [Pexels, photo 4729631](https://www.pexels.com/photo/4729631/), Leeloo The First |
+| `images/on-the-canvas.jpg` | A hand painting on canvas | [Pexels, photo 15686006](https://www.pexels.com/photo/15686006/), Natali Smirnova |
+| `images/red-rose.jpg` | Pink and white roses | [Pexels, photo 20440303](https://www.pexels.com/photo/20440303/), Luis Alberto Barrera Diaz |
 | `images/open-sky.jpg` | A pink rose against blue sky | [Pexels, photo 26824434](https://www.pexels.com/photo/26824434/), Ellie Burgin |
-| `images/paint-water.jpg` | Brushes and colored water | [Unsplash](https://unsplash.com/photos/1460661419201) |
+| `images/paint-water.jpg` | Paintbrushes on wood | [Pexels, photo 5583053](https://www.pexels.com/photo/5583053/), Polina Tankilevitch |
 | `images/mona-lisa.jpg` | Mona Lisa | Leonardo da Vinci, public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg) |
-| `images/teal-wash.jpg` | A blue watercolor | [Unsplash](https://unsplash.com/photos/1579783901586) |
+| `images/teal-wash.jpg` | A soft pink and green wash | [Pexels, photo 32171492](https://www.pexels.com/photo/32171492/), Landiva W. Souza |
 | `images/olive-leaves.svg`, `vase-study.svg`, `leaf-sprig.svg`, `leaf-sprig-two.svg`, `autumn-still.svg` | Original drawings | Made for this site |
 
 Unsplash photos are used under the [Unsplash License](https://unsplash.com/license). Pexels photos are used under the [Pexels License](https://www.pexels.com/license/).

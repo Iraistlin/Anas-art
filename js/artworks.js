@@ -151,7 +151,7 @@ window.ARTWORKS = [
   {
     id: "red-rose",
     shopHome: true,
-    title: "Red Rose",
+    title: "Blush Roses",
     year: 2025,
     medium: "Oil on canvas panel",
     size: "20 × 24 in",
@@ -186,7 +186,7 @@ window.ARTWORKS = [
   {
     id: "paint-water",
     shopHome: true,
-    title: "Paint and Water",
+    title: "Studio Brushes",
     year: 2023,
     medium: "Oil on stretched canvas",
     size: "24 × 30 in",
@@ -237,7 +237,7 @@ window.ARTWORKS = [
   },
   {
     id: "teal-wash",
-    title: "Teal Wash",
+    title: "Soft Wash",
     year: 2024,
     medium: "Oil on canvas panel",
     size: "16 × 20 in",
