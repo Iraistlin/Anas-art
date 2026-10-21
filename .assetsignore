@@ -1,0 +1,20 @@
+# Files Wrangler should not upload. Syntax matches .gitignore.
+# The site files (index.html, css, js, images, fonts, favicon.svg) stay.
+
+.git
+.github
+.gitignore
+.nojekyll
+.assetsignore
+.wrangler
+node_modules
+README.md
+wrangler.jsonc
+wrangler.toml
+.DS_Store
+
+# Outfit shipped with an earlier draft and is not used by this page.
+fonts/outfit-latin-300-normal.woff2
+fonts/outfit-latin-400-normal.woff2
+fonts/outfit-latin-500-normal.woff2
+fonts/OFL-Outfit.txt

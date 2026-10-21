@@ -3,99 +3,166 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ana — Paintings</title>
-  <meta name="description" content="Paintings by Ana. A small gallery of available work, with room to add new pieces as they leave the studio.">
-  <meta name="author" content="Ana">
-  <meta name="theme-color" content="#f3efe8">
+  <title>Liz Miranda</title>
+  <meta name="description" content="Liz Miranda is an oil painter based in Texas. Soft, dreamy paintings on canvas panels and stretched canvas.">
+  <meta name="author" content="Liz Miranda">
+  <meta name="theme-color" content="#f3dcd6">
   <meta name="robots" content="index, follow">
-  <!-- Update the address below if the site moves to a custom domain. -->
-  <link rel="canonical" href="https://iraistlin.github.io/anas-art/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="Ana">
-  <meta property="og:title" content="Ana — Paintings">
-  <meta property="og:description" content="Paintings by Ana. A small gallery of available work, with room to add new pieces as they leave the studio.">
-  <meta property="og:url" content="https://iraistlin.github.io/anas-art/">
-  <meta property="og:image" content="https://iraistlin.github.io/anas-art/images/harbor-morning.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ana — Paintings">
-  <meta name="twitter:description" content="Paintings by Ana. A small gallery of available work, with room to add new pieces as they leave the studio.">
-  <meta name="twitter:image" content="https://iraistlin.github.io/anas-art/images/harbor-morning.svg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ana",
-    "jobTitle": "Painter",
-    "url": "https://iraistlin.github.io/anas-art/"
-  }
-  </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to the paintings</a>
-  <header class="site-header">
+  <a class="skip" href="#home">Skip to content</a>
+
+  <header class="site-header" id="top">
     <div class="wrap header-inner">
-      <a class="logo" href="#work">Ana</a>
+      <a class="brand" href="#home">
+        <img src="images/mark.jpg" alt="" width="46" height="46">
+        <span>Liz Miranda</span>
+      </a>
       <nav aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#shop">Shop</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <section id="work" class="wrap">
-      <div id="featured">
+  <main id="home">
+    <section class="hero" id="hero" aria-label="Home">
+      <div class="wrap hero-grid">
+        <a class="tile" href="#about">
+          <img src="images/tile-about.jpg" alt="">
+          <span>About Me</span>
+        </a>
+        <a class="tile" href="#portfolio">
+          <img src="images/tile-portfolio.jpg" alt="">
+          <span>Portfolio</span>
+        </a>
+        <a class="tile" href="#shop">
+          <img src="images/tile-shop.jpg" alt="">
+          <span>Shop</span>
+        </a>
+        <a class="tile" href="#contact">
+          <img src="images/tile-contact.jpg" alt="">
+          <span>Contact</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="strip" id="strip" aria-label="Selected pictures">
+      <div class="strip-scroller">
+        <img src="images/strip-1.jpg" alt="">
+        <img src="images/strip-2.jpg" alt="">
+        <img src="images/strip-3.jpg" alt="">
+        <img src="images/strip-4.jpg" alt="">
+        <img src="images/strip-5.jpg" alt="">
+      </div>
+      <div class="wrap strip-foot">
+        <a class="see-all see-all-light" href="#portfolio">See All</a>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="visually-hidden">About Me</h2>
+      <div class="letter">
+        <p class="letter-greet">Dear Reader,</p>
+        <p>A little bit about me: I'm an oil painter, based in Texas, and painting is one of my favorite ways to slow down, and bring the ideas in my head to life. I am drawn to soft colors and creating work that feels dreamy and expressive. Every piece I create is a little part of me. I am so happy to be able to share that part with you. Thank you for being here!</p>
+        <p class="letter-sign">With so much love,<br>-Liz Miranda</p>
+      </div>
+    </section>
+
+    <section class="works" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="wrap">
+        <div class="block-bar">
+          <h2 id="portfolio-title" class="visually-hidden">Portfolio</h2>
+          <a class="see-all" href="#shop">See All</a>
+        </div>
+        <div id="portfolio-grid" class="art-grid"></div>
         <noscript>
-          <p class="empty">This gallery needs JavaScript to show the paintings. The list itself lives in js/artworks.js.</p>
+          <p class="noscript">This gallery needs JavaScript to show the paintings. The list lives in js/artworks.js.</p>
         </noscript>
       </div>
-      <div class="section-head">
-        <h2>All paintings</h2>
-        <p id="count" class="count"></p>
-      </div>
-      <div id="gallery" class="grid"></div>
     </section>
 
-    <!-- Replace the About copy below with Ana's own words. -->
-    <section id="about" class="wrap about">
-      <p class="eyebrow">About</p>
-      <h2>The artist</h2>
-      <p class="placeholder-banner">Placeholder — replace this copy with Ana’s own words. Edit the About section in index.html.</p>
-      <div class="about-grid">
-        <p>Ana paints rooms, coastlines, and the ordinary objects that hold a day together. The paintings are built in thin layers and stay close to the color of real light.</p>
-        <p>New work is added here as it leaves the studio. Anything marked available can be asked about through the contact links below.</p>
+    <section class="works" id="shop" aria-labelledby="shop-title">
+      <div class="wrap">
+        <div class="block-bar">
+          <h2 id="shop-title" class="visually-hidden">Shop</h2>
+          <a class="see-all" href="#portfolio">See All</a>
+        </div>
+        <div id="shop-grid" class="art-grid"></div>
       </div>
     </section>
 
-    <!-- Replace the email and social links. They are examples, not real accounts. -->
-    <section id="contact" class="wrap contact">
-      <p class="eyebrow">Contact</p>
-      <h2>Write to the studio</h2>
-      <p class="lede">For a price, a studio visit, or news of new work.</p>
-      <ul class="contact-list">
-        <li>
-          <span class="contact-label">Email</span>
-          <a href="mailto:hello@example.com">hello@example.com</a>
-          <span class="placeholder">Placeholder — replace this address</span>
-        </li>
-        <li>
-          <span class="contact-label">Instagram</span>
-          <a href="https://example.com">@ana.studio</a>
-          <span class="placeholder">Placeholder — replace this link</span>
-        </li>
-      </ul>
+    <!-- Edit the questions and answers in this section. They are placeholders. -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 id="faq-title" class="visually-hidden">Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-col">
+            <article>
+              <h3>Shipping</h3>
+              <p class="faq-sub">Frequently Asked Questions.</p>
+              <p>Paintings ship from Texas, packed for the trip. Replace this with your timeline and rates.</p>
+            </article>
+            <article>
+              <h3>Framing</h3>
+              <p>Many pieces can be bought framed or unframed. Replace this with the frames you offer.</p>
+            </article>
+            <article>
+              <h3>Commissions</h3>
+              <p>Commissions are sometimes open for oil on canvas panel or stretched canvas. Replace this with how to ask.</p>
+            </article>
+          </div>
+          <p class="faq-mark" aria-hidden="true">?</p>
+          <div class="faq-col">
+            <article>
+              <h3>Care</h3>
+              <p>Keep oils out of direct sun and damp rooms. Replace this with your own care notes.</p>
+            </article>
+            <article>
+              <h3>Drying and varnish</h3>
+              <p>Oils need time to dry before a varnish. Replace this with the timing you use.</p>
+            </article>
+            <article>
+              <h3>Returns</h3>
+              <p>This return note is a placeholder. Replace it with the terms you want collectors to know.</p>
+            </article>
+          </div>
+        </div>
+        </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>© <span id="year">2026</span> Ana</p>
-      <p>The pictures on this site are placeholder studies. Replace them with photographs of the paintings.</p>
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <p class="footer-name">Liz<br>Miranda</p>
+      <p class="footer-start">
+        <span class="type-text">Type Text</span>
+        <a class="to-start" href="#top">To Start</a>
+      </p>
+      <div class="footer-contact">
+        <p>Contact:</p>
+        <a href="mailto:blank@email.com">blank@email.com</a>
+        <p class="placeholder">Placeholder — replace this address</p>
+      </div>
+      <div class="footer-social">
+        <p>If you'd like to see behind the scenes:</p>
+        <div class="socials">
+          <a href="https://example.com" aria-label="Facebook, placeholder link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 8.5h2.3V5.8h-2.3c-2.1 0-3.5 1.4-3.5 3.6v1.8H8.5v2.7h2.2V20h2.8v-6.1h2.3l.3-2.7h-2.6v-1.5c0-.7.3-1.2 1.2-1.2z"/></svg>
+          </a>
+          <a href="https://example.com" aria-label="X, placeholder link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.2 5.5h3.1l3.2 4.4 3.6-4.4h2.7l-5.1 6.1 5.6 7h-3.1l-3.6-4.8-4 4.8H5.9l5.5-6.5-5.2-6.6z"/></svg>
+          </a>
+        </div>
+        <p class="placeholder">Placeholder links</p>
+      </div>
     </div>
+    <p class="copyright">© 2026 Liz Miranda</p>
   </footer>
 
   <dialog id="detail" class="detail" aria-labelledby="detail-title">
@@ -105,9 +172,7 @@
         <p id="detail-missing" class="missing" hidden>Image not found. Check the file name in js/artworks.js.</p>
       </div>
       <div class="detail-copy">
-        <button type="button" class="detail-close" id="detail-close" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
+        <button type="button" class="detail-close" id="detail-close" aria-label="Close">×</button>
         <p class="eyebrow">Painting</p>
         <h2 id="detail-title"></h2>
         <dl id="detail-facts" class="detail-facts"></dl>

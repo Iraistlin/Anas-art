@@ -1,7 +1,9 @@
-/* Ana's paintings
-   ----------------
+/* Liz Miranda's paintings
+   -----------------------
    This is the only file you need to edit when a painting is added,
-   sold, or given a new price. The website reads this list.
+   sold, or given a new price. The pictures shipping with the site are
+   free-license samples. Swap in a photograph of the real painting and
+   change the words below.
 
    To add a painting:
    1. Put the photo in the images/ folder.
@@ -9,137 +11,227 @@
       like images/blue-vase.jpg
    2. Copy one of the { ... } blocks below, including the comma.
    3. Paste it where you want it to appear.
-      Higher in the list means earlier in the gallery.
+      Higher in the list means earlier in the Portfolio.
+      The Shop shows the same list, keeping only "available" paintings.
    4. Change the words, save, and refresh the page.
 
-   featured         true for the large painting at the top of the home
-                    page. Use true on only one painting. If several say
-                    true, the first one is used.
-   status           "available", "sold", or "not-for-sale"
-   price            What to show when status is "available",
-                    for example "$1,200". Use "" to show
-                    "Price on request".
-   paypalLink       A PayPal payment link. When this is filled in,
-                    a Buy now button appears on that painting.
-                    Leave "" and the button stays hidden.
-   paypalButtonId   Optional. If PayPal gave you a hosted button id
-                    and you do not have a link, paste the id here.
-                    Leave "" if you are using paypalLink or no button.
+   status                "available", "sold", or "not-for-sale"
+   price                 What to show when status is "available",
+                         for example "$1,200". Use "" to show
+                         "Price on request".
+   framedPrice           Optional. Shown on the detail view when the
+                         painting is available. Leave "" to hide it.
+   paypalLink            A PayPal payment link. When this is filled in,
+                         a Buy now button appears on that painting.
+   paypalButtonId        Hosted button id, if you have an id instead of a link.
+   framedPaypalLink      Same as paypalLink, for the framed price.
+   framedPaypalButtonId  Hosted button id for the framed price.
 
    Do not put a PayPal password or secret key in this file.
-   A payment link is public; a password is not.
 */
 window.ARTWORKS = [
   {
-    id: "harbor-morning",
-    title: "Harbor Morning",
-    year: 2024,
-    medium: "Oil on linen",
-    size: "36 × 48 in",
+    id: "olive-leaves",
+    title: "Olive Leaves",
+    year: 2025,
+    medium: "Oil on canvas panel",
+    size: "16 × 24 in",
     status: "available",
-    price: "$2,400",
-    image: "images/harbor-morning.svg",
-    featured: true,
-    description: "Thin bands of water under a warm sky, painted to hold the hour just after the fog lifts.",
+    price: "$480",
+    framedPrice: "",
+    image: "images/olive-leaves.svg",
+    featured: false,
+    description: "A sample print. Replace this file with a photograph of the painting.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "red-room",
-    title: "The Red Room",
-    year: 2023,
-    medium: "Oil on canvas",
-    size: "30 × 24 in",
+    id: "vase-study",
+    title: "Vase Study",
+    year: 2025,
+    medium: "Oil on canvas panel",
+    size: "16 × 24 in",
+    status: "available",
+    price: "$520",
+    framedPrice: "",
+    image: "images/vase-study.svg",
+    featured: false,
+    description: "A sample print. Replace this file with a photograph of the painting.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "leaf-sprig",
+    title: "Leaf Sprig",
+    year: 2024,
+    medium: "Oil on canvas panel",
+    size: "16 × 24 in",
     status: "sold",
     price: "",
-    image: "images/red-room.svg",
+    framedPrice: "",
+    image: "images/leaf-sprig.svg",
     featured: false,
-    description: "A small interior, mostly one color, with the window left as a pale rectangle.",
+    description: "A sample print. This one is marked sold.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "orchard-january",
-    title: "Orchard in January",
-    year: 2025,
-    medium: "Oil on panel",
-    size: "20 × 16 in",
-    status: "not-for-sale",
-    price: "",
-    image: "images/orchard-january.svg",
-    featured: false,
-    description: "Bare trees, a gray-green ground, and the little warmth left in the grass.",
-    paypalLink: "",
-    paypalButtonId: ""
-  },
-  {
-    id: "blue-interior",
-    title: "Blue Interior",
+    id: "leaf-sprig-two",
+    title: "Leaf Sprig II",
     year: 2024,
-    medium: "Acrylic on canvas",
-    size: "40 × 30 in",
+    medium: "Oil on canvas panel",
+    size: "16 × 24 in",
     status: "available",
-    price: "$1,800",
-    image: "images/blue-interior.svg",
+    price: "$440",
+    framedPrice: "",
+    image: "images/leaf-sprig-two.svg",
     featured: false,
-    description: "A room reduced to a window, a floor, and the blue of the wall at midday.",
-    paypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER",
-    paypalButtonId: ""
-  },
-  {
-    id: "terrace",
-    title: "Terrace",
-    year: 2022,
-    medium: "Oil on canvas",
-    size: "18 × 24 in",
-    status: "available",
-    price: "$950",
-    image: "images/terrace.svg",
-    featured: false,
-    description: "Evening light on a railing, and one plant still in the sun.",
+    description: "A sample print. Replace this file with a photograph of the painting.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "lemons",
-    title: "Still Life with Lemons",
+    id: "garden-terrace",
+    title: "Garden Terrace",
     year: 2025,
-    medium: "Oil on linen",
-    size: "16 × 20 in",
-    status: "available",
-    price: "$720",
-    image: "images/lemons.svg",
-    featured: false,
-    description: "Two lemons, a folded cloth, and the color of the table.",
-    paypalLink: "",
-    paypalButtonId: ""
-  },
-  {
-    id: "coast-road",
-    title: "Coast Road",
-    year: 2023,
-    medium: "Oil on canvas",
+    medium: "Oil on stretched canvas",
     size: "24 × 36 in",
     status: "available",
     price: "$1,600",
-    image: "images/coast-road.svg",
+    framedPrice: "",
+    image: "images/garden-terrace.jpg",
     featured: false,
-    description: "The road is a thin line between the cliff and the water.",
+    description: "A sample photograph. Replace it with the painting.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "study-green",
-    title: "Study in Green",
-    year: 2026,
-    medium: "Gouache on paper",
-    size: "11 × 14 in",
+    id: "on-the-canvas",
+    title: "On the Canvas",
+    year: 2024,
+    medium: "Oil on stretched canvas",
+    size: "30 × 40 in",
     status: "available",
-    price: "$280",
-    image: "images/study-green.svg",
+    price: "$1,800",
+    framedPrice: "$2,250",
+    image: "images/on-the-canvas.jpg",
     featured: false,
-    description: "A quick study of green against the color of the paper.",
+    description: "A sample photograph. The PayPal links below are stand-ins.",
+    paypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER",
+    paypalButtonId: "",
+    framedPaypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER-FRAMED",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "red-rose",
+    title: "Red Rose",
+    year: 2025,
+    medium: "Oil on canvas panel",
+    size: "20 × 24 in",
+    status: "available",
+    price: "$860",
+    framedPrice: "",
+    image: "images/red-rose.jpg",
+    featured: false,
+    description: "A sample photograph. Replace it with the painting.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "open-sky",
+    title: "Open Sky",
+    year: 2025,
+    medium: "Oil on canvas panel",
+    size: "18 × 24 in",
+    status: "available",
+    price: "$720",
+    framedPrice: "",
+    image: "images/open-sky.jpg",
+    featured: false,
+    description: "A sample photograph. Replace it with the painting.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "paint-water",
+    title: "Paint and Water",
+    year: 2023,
+    medium: "Oil on stretched canvas",
+    size: "24 × 30 in",
+    status: "available",
+    price: "$1,100",
+    framedPrice: "",
+    image: "images/paint-water.jpg",
+    featured: false,
+    description: "A sample photograph. Replace it with the painting.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "mona-lisa",
+    title: "Mona Lisa",
+    year: 1503,
+    medium: "Oil on poplar panel",
+    size: "21 × 30 in",
+    status: "not-for-sale",
+    price: "",
+    framedPrice: "",
+    image: "images/mona-lisa.jpg",
+    featured: false,
+    description: "Leonardo da Vinci. Public domain, from Wikimedia Commons. A stand-in for the gallery, not a painting for sale.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "autumn-still",
+    title: "Autumn Still",
+    year: 2025,
+    medium: "Oil on canvas panel",
+    size: "16 × 20 in",
+    status: "available",
+    price: "$640",
+    framedPrice: "",
+    image: "images/autumn-still.svg",
+    featured: false,
+    description: "A sample still life. Replace this file with a photograph of the painting.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "teal-wash",
+    title: "Teal Wash",
+    year: 2024,
+    medium: "Oil on canvas panel",
+    size: "16 × 20 in",
+    status: "available",
+    price: "$540",
+    framedPrice: "",
+    image: "images/teal-wash.jpg",
+    featured: false,
+    description: "A sample photograph. Replace it with the painting.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   }
 ];
