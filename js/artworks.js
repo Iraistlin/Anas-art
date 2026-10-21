@@ -17,16 +17,18 @@
    The homepage Portfolio row shows every piece that has a picture.
    portfolio.html shows that list, then the black placeholders.
    The homepage Shop shows the eight pieces with shopHome set to true.
+   The Portfolio is a showcase: tiles show the title only, and the
+   detail opened from a Portfolio tile has no price and no Buy buttons.
    shop.html shows every piece that has a picture, with its price.
-   Buy buttons stay on the detail view, and only when a PayPal link is set.
+   Buy buttons stay on the Shop detail, and only when a PayPal link is set.
 
    To replace a black tile, fill in image, title, and price, then set blank to false.
 
    status                "available", "sold", or "not-for-sale"
-   price                 What to show when status is "available",
-                         for example "$1,200". Use "" to show
-                         "Price on request".
-   framedPrice           Optional. Shown on the detail view when the
+   price                 Shop only. What to show when status is
+                         "available", for example "$1,200". Use "" to
+                         show "Price on request".
+   framedPrice           Optional. Shown on the Shop detail when the
                          painting is available. Leave "" to hide it.
    paypalLink            A PayPal payment link. When this is filled in,
                          a Buy now button appears on that painting.

@@ -7,6 +7,7 @@
   var shopEl = document.getElementById("shop-grid");
   var dialog = document.getElementById("detail");
   var home = document.getElementById("home");
+  var selling = false;
 
   if ((!portfolioEl && !shopEl) || !dialog || !home) return;
 
@@ -23,6 +24,7 @@
   home.addEventListener("click", function (event) {
     var button = event.target.closest("[data-id]");
     if (!button) return;
+    selling = sells(button.closest("[data-show]"));
     openById(button.getAttribute("data-id"));
   });
 
@@ -95,6 +97,11 @@
         blank: Boolean(work && work.blank) || !text(work && work.image)
       };
     });
+  }
+
+  function sells(el) {
+    var mode = el && el.getAttribute("data-show");
+    return mode === "shop" || mode === "shop-home";
   }
 
   function listFor(el) {
@@ -176,11 +183,13 @@
       title.className = "art-title";
       title.textContent = work.title;
 
-      var price = document.createElement("span");
-      price.className = "art-price";
-      price.textContent = work.blank ? "\u00a0" : priceLabel(work);
-
-      button.append(photo, title, price);
+      button.append(photo, title);
+      if (sells(container)) {
+        var price = document.createElement("span");
+        price.className = "art-price";
+        price.textContent = priceLabel(work);
+        button.appendChild(price);
+      }
       container.appendChild(button);
     });
 
@@ -227,10 +236,12 @@
     var rows = [
       ["Year", work.year],
       ["Medium", work.medium],
-      ["Size", work.size],
-      ["Price", priceLabel(work)]
+      ["Size", work.size]
     ];
-    if (work.status === "available" && work.framedPrice) rows.push(["Framed", formatPrice(work.framedPrice)]);
+    if (selling) {
+      rows.push(["Price", priceLabel(work)]);
+      if (work.status === "available" && work.framedPrice) rows.push(["Framed", formatPrice(work.framedPrice)]);
+    }
     rows.forEach(function (row) {
       if (!row[1]) return;
       var wrap = document.createElement("div");
@@ -244,8 +255,8 @@
 
     var buy = document.getElementById("detail-buy");
     buy.replaceChildren();
-    var plain = buyOffer(work.paypalLink, work.paypalButtonId, work.status);
-    var framedOffer = buyOffer(work.framedPaypalLink, work.framedPaypalButtonId, work.status);
+    var plain = selling ? buyOffer(work.paypalLink, work.paypalButtonId, work.status) : null;
+    var framedOffer = selling ? buyOffer(work.framedPaypalLink, work.framedPaypalButtonId, work.status) : null;
     if (plain || framedOffer) {
       var row = document.createElement("div");
       row.className = "buy-row";
@@ -286,6 +297,7 @@
       if (dialog.open) dialog.close();
       return;
     }
+    selling = Boolean(shopEl) && !portfolioEl;
     openById(decodeURIComponent(hash.slice("#painting-".length)));
   }
 
