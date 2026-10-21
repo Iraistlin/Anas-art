@@ -199,8 +199,7 @@ nav a:focus-visible {
 }
 
 .tile img,
-.art-photo img,
-.strip-scroller img {
+.art-photo img {
   display: block;
   width: 100%;
   height: auto;
@@ -224,35 +223,6 @@ nav a:focus-visible {
   white-space: nowrap;
 }
 
-.strip {
-  background: var(--rose);
-  padding: var(--space) 0;
-}
-
-.strip-scroller {
-  display: flex;
-  gap: var(--tile-gap);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.strip-scroller::-webkit-scrollbar {
-  display: none;
-}
-
-.strip-scroller img {
-  flex: 0 0 calc((100% - (var(--cols) - 1) * var(--tile-gap)) / var(--cols));
-  width: calc((100% - (var(--cols) - 1) * var(--tile-gap)) / var(--cols));
-  scroll-snap-align: start;
-}
-
-.strip-foot {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: var(--space);
-}
-
 .see-all {
   color: #6a534e;
   font-size: 1.2rem;
@@ -260,10 +230,6 @@ nav a:focus-visible {
   font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 0.16em;
-}
-
-.see-all-light {
-  color: #fbf7f5;
 }
 
 .about {

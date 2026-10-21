@@ -2,7 +2,7 @@
 
 A portfolio for Liz Miranda, an oil painter in Texas. It is plain HTML, CSS, and a little JavaScript. There is no build step. Paths are relative, so the pages work when you open `index.html` on your computer and when Cloudflare serves the repository root.
 
-The pictures in the home tiles, the strip, the About background, and the gallery are free-license samples, listed under Sample pictures. Swap the gallery files for photographs of the real paintings and edit `js/artworks.js`. The questions, the email, and the social links are still placeholders.
+The pictures in the home tiles, the About background, and the gallery are free-license samples, listed under Sample pictures. Swap the gallery files for photographs of the real paintings and edit `js/artworks.js`. The questions, the email, and the social links are still placeholders.
 
 ## What is on the page
 
@@ -10,12 +10,11 @@ The sections follow the layout Liz designed, top to bottom:
 
 1. Header — round mark and the name, then Home, About Me, Portfolio, Shop, Contact.
 2. Home — four tall pictures. About Me and Contact stay on this page. Portfolio opens `portfolio.html`. Shop opens `shop.html`.
-3. A sideways strip of pictures. **See All** opens the Portfolio page.
-4. About Me — the letter, over a studio picture.
-5. Portfolio — one sideways row of the paintings that have pictures. The row ends with a **See All** tile. The small **See All** above the row opens the same page.
-6. Shop — eight paintings, four across, with the title and price under each one. **See All** opens the Shop page.
-7. Questions — six short notes. Edit them in `index.html`.
-8. Footer — name, **To Start** (back to the top), contact, and two social icons.
+3. About Me — the letter, over a studio picture.
+4. Portfolio — one sideways row of the paintings that have pictures. The row ends with a **See All** tile. The small **See All** above the row opens the same page.
+5. Shop — eight paintings, four across, with the title and price under each one. **See All** opens the Shop page.
+6. Questions — six short notes. Edit them in `index.html`.
+7. Footer — name, **To Start** (back to the top), contact, and two social icons.
 
 `portfolio.html` is the full Portfolio: every entry in `js/artworks.js`, four across, including the solid black placeholders. `shop.html` is the full Shop: every painting that has a picture, with its price. The two **See All** links do not go to the same page. The header links and the home tiles use those same two pages.
 
@@ -78,7 +77,7 @@ In `index.html`:
 - The email is `blank@email.com` and is marked **Placeholder**. Put in the real address.
 - The Facebook and X icons point at `https://example.com` and are marked **Placeholder links**.
 
-The round mark is `images/mark.jpg`. The studio picture behind the letter is `images/about-studio.jpg`. The four home tiles and the strip use the other files in `images/`. Replace any of them with a photograph of the same name, or change the `src` in `index.html`. The same header and footer are on `portfolio.html` and `shop.html`. The email and social links are placeholders on each page.
+The round mark is `images/mark.jpg`. The studio picture behind the letter is `images/about-studio.jpg`. The four home tiles use the other files in `images/`. Replace any of them with a photograph of the same name, or change the `src` in `index.html`. The same header and footer are on `portfolio.html` and `shop.html`. The email and social links are placeholders on each page.
 
 ## Cloudflare Workers
 
@@ -124,11 +123,6 @@ These stand in until the real paintings are ready. The four botanical cards and 
 | `images/tile-portfolio.jpg` | Pink and white roses | [Unsplash](https://unsplash.com/photos/1526047932273) |
 | `images/tile-shop.jpg` | Hands cutting a wedding cake | [Pexels, photo 19522701](https://www.pexels.com/photo/19522701/) |
 | `images/tile-contact.jpg` | A woman in a white dress | [Pexels, photo 8484213](https://www.pexels.com/photo/8484213/) |
-| `images/strip-1.jpg` | A couple holding hands | [Unsplash](https://unsplash.com/photos/1519741497674) |
-| `images/strip-2.jpg` | A white rose bouquet | [Unsplash](https://unsplash.com/photos/1468327768560) |
-| `images/strip-3.jpg` | A couple | [Unsplash](https://unsplash.com/photos/1522673607200) |
-| `images/strip-4.jpg` | A vintage camera | [Unsplash](https://unsplash.com/photos/1495707902641) |
-| `images/strip-5.jpg` | A woman in a white dress on a garden terrace | [Pexels, photo 4729631](https://www.pexels.com/photo/4729631/), Leeloo The First |
 | `images/about-studio.jpg` | A woman painting outdoors | [Unsplash](https://unsplash.com/photos/1660092626225) |
 | `images/mark.jpg` | Rose, cropped for the round mark | [Unsplash](https://unsplash.com/photos/1496062031456) |
 | `images/garden-terrace.jpg` | A woman in a white dress on a garden terrace | [Pexels, photo 4729631](https://www.pexels.com/photo/4729631/), Leeloo The First |
