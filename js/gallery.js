@@ -112,7 +112,7 @@
 
     function stepCard(dir) {
       var card = scroller.querySelector(".art-card");
-      var gap = 16;
+      var gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
       var amount = card ? card.getBoundingClientRect().width + gap : 280;
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       scroller.scrollBy({ left: dir * amount, behavior: reduce ? "auto" : "smooth" });
