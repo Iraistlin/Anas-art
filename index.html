@@ -23,8 +23,8 @@
       <nav aria-label="Sections">
         <a href="#home">Home</a>
         <a href="#about">About Me</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#shop">Shop</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="shop.html">Shop</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -37,11 +37,11 @@
           <img src="images/tile-about.jpg" alt="">
           <span>About Me</span>
         </a>
-        <a class="tile" href="#portfolio">
+        <a class="tile" href="portfolio.html">
           <img src="images/tile-portfolio.jpg" alt="">
           <span>Portfolio</span>
         </a>
-        <a class="tile" href="#shop">
+        <a class="tile" href="shop.html">
           <img src="images/tile-shop.jpg" alt="">
           <span>Shop</span>
         </a>
@@ -61,7 +61,7 @@
         <img src="images/strip-5.jpg" alt="">
       </div>
       <div class="wrap strip-foot">
-        <a class="see-all see-all-light" href="#portfolio">See All</a>
+        <a class="see-all see-all-light" href="portfolio.html">See All</a>
       </div>
     </section>
 
@@ -78,22 +78,26 @@
       <div class="wrap">
         <div class="block-bar">
           <h2 id="portfolio-title" class="visually-hidden">Portfolio</h2>
-          <a class="see-all" href="#shop">See All</a>
+          <a class="see-all" href="portfolio.html">See All</a>
         </div>
-        <div id="portfolio-grid" class="art-grid"></div>
-        <noscript>
-          <p class="noscript">This gallery needs JavaScript to show the paintings. The list lives in js/artworks.js.</p>
-        </noscript>
       </div>
+      <div class="slider-wrap">
+        <button type="button" class="slider-arrow slider-prev" aria-label="Previous paintings">‹</button>
+        <div id="portfolio-grid" class="art-slider" data-show="slider"></div>
+        <button type="button" class="slider-arrow slider-next" aria-label="Next paintings">›</button>
+      </div>
+      <noscript>
+        <p class="noscript wrap">This gallery needs JavaScript to show the paintings. The list lives in js/artworks.js.</p>
+      </noscript>
     </section>
 
     <section class="works" id="shop" aria-labelledby="shop-title">
       <div class="wrap">
         <div class="block-bar">
           <h2 id="shop-title" class="visually-hidden">Shop</h2>
-          <a class="see-all" href="#portfolio">See All</a>
+          <a class="see-all" href="shop.html">See All</a>
         </div>
-        <div id="shop-grid" class="art-grid"></div>
+        <div id="shop-grid" class="art-grid" data-show="shop-home"></div>
       </div>
     </section>
 

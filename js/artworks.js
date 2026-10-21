@@ -11,9 +11,16 @@
       like images/blue-vase.jpg
    2. Copy one of the { ... } blocks below, including the comma.
    3. Paste it where you want it to appear.
-      Higher in the list means earlier in the Portfolio.
-      The Shop shows the same list, keeping only "available" paintings.
+      Higher in the list means earlier on the Portfolio page and the Shop page.
    4. Change the words, save, and refresh the page.
+
+   The homepage Portfolio row shows every piece that has a picture.
+   portfolio.html shows that list, then the black placeholders.
+   The homepage Shop shows the eight pieces with shopHome set to true.
+   shop.html shows every piece that has a picture, with its price.
+   Buy buttons stay on the detail view, and only when a PayPal link is set.
+
+   To replace a black tile, fill in image, title, and price, then set blank to false.
 
    status                "available", "sold", or "not-for-sale"
    price                 What to show when status is "available",
@@ -26,12 +33,16 @@
    paypalButtonId        Hosted button id, if you have an id instead of a link.
    framedPaypalLink      Same as paypalLink, for the framed price.
    framedPaypalButtonId  Hosted button id for the framed price.
+   shopHome              true puts the piece in the eight on the homepage Shop.
+   blank                 true draws a solid black tile on the Portfolio page.
+                         These tiles are left out of the Shop.
 
    Do not put a PayPal password or secret key in this file.
 */
 window.ARTWORKS = [
   {
     id: "olive-leaves",
+    shopHome: true,
     title: "Olive Leaves",
     year: 2025,
     medium: "Oil on canvas panel",
@@ -49,6 +60,7 @@ window.ARTWORKS = [
   },
   {
     id: "vase-study",
+    shopHome: true,
     title: "Vase Study",
     year: 2025,
     medium: "Oil on canvas panel",
@@ -66,6 +78,7 @@ window.ARTWORKS = [
   },
   {
     id: "leaf-sprig",
+    shopHome: true,
     title: "Leaf Sprig",
     year: 2024,
     medium: "Oil on canvas panel",
@@ -83,6 +96,7 @@ window.ARTWORKS = [
   },
   {
     id: "leaf-sprig-two",
+    shopHome: true,
     title: "Leaf Sprig II",
     year: 2024,
     medium: "Oil on canvas panel",
@@ -100,6 +114,7 @@ window.ARTWORKS = [
   },
   {
     id: "garden-terrace",
+    shopHome: true,
     title: "Garden Terrace",
     year: 2025,
     medium: "Oil on stretched canvas",
@@ -117,6 +132,7 @@ window.ARTWORKS = [
   },
   {
     id: "on-the-canvas",
+    shopHome: true,
     title: "On the Canvas",
     year: 2024,
     medium: "Oil on stretched canvas",
@@ -134,7 +150,8 @@ window.ARTWORKS = [
   },
   {
     id: "red-rose",
-    title: "Red Rose",
+    shopHome: true,
+    title: "Blush Roses",
     year: 2025,
     medium: "Oil on canvas panel",
     size: "20 × 24 in",
@@ -168,7 +185,8 @@ window.ARTWORKS = [
   },
   {
     id: "paint-water",
-    title: "Paint and Water",
+    shopHome: true,
+    title: "Studio Brushes",
     year: 2023,
     medium: "Oil on stretched canvas",
     size: "24 × 30 in",
@@ -219,7 +237,7 @@ window.ARTWORKS = [
   },
   {
     id: "teal-wash",
-    title: "Teal Wash",
+    title: "Soft Wash",
     year: 2024,
     medium: "Oil on canvas panel",
     size: "16 × 20 in",
@@ -229,6 +247,78 @@ window.ARTWORKS = [
     image: "images/teal-wash.jpg",
     featured: false,
     description: "A sample photograph. Replace it with the painting.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "coming-1",
+    title: "Coming Soon",
+    year: "",
+    medium: "",
+    size: "",
+    status: "not-for-sale",
+    price: "",
+    framedPrice: "",
+    image: "",
+    blank: true,
+    featured: false,
+    description: "A blank Portfolio tile. Add a picture, title, and price here, then set blank to false.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "coming-2",
+    title: "Coming Soon",
+    year: "",
+    medium: "",
+    size: "",
+    status: "not-for-sale",
+    price: "",
+    framedPrice: "",
+    image: "",
+    blank: true,
+    featured: false,
+    description: "A blank Portfolio tile. Add a picture, title, and price here, then set blank to false.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "coming-3",
+    title: "Coming Soon",
+    year: "",
+    medium: "",
+    size: "",
+    status: "not-for-sale",
+    price: "",
+    framedPrice: "",
+    image: "",
+    blank: true,
+    featured: false,
+    description: "A blank Portfolio tile. Add a picture, title, and price here, then set blank to false.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "coming-4",
+    title: "Coming Soon",
+    year: "",
+    medium: "",
+    size: "",
+    status: "not-for-sale",
+    price: "",
+    framedPrice: "",
+    image: "",
+    blank: true,
+    featured: false,
+    description: "A blank Portfolio tile. Add a picture, title, and price here, then set blank to false.",
     paypalLink: "",
     paypalButtonId: "",
     framedPaypalLink: "",

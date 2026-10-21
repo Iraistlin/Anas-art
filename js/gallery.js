@@ -6,18 +6,21 @@
   var portfolioEl = document.getElementById("portfolio-grid");
   var shopEl = document.getElementById("shop-grid");
   var dialog = document.getElementById("detail");
+  var home = document.getElementById("home");
 
-  if (!portfolioEl || !shopEl || !dialog) return;
+  if ((!portfolioEl && !shopEl) || !dialog || !home) return;
 
   if (!works.length) {
-    portfolioEl.innerHTML = '<p class="empty">No paintings yet. Add one in js/artworks.js, then refresh this page.</p>';
+    var emptyHost = portfolioEl || shopEl;
+    emptyHost.innerHTML = '<p class="empty">No paintings yet. Add one in js/artworks.js, then refresh this page.</p>';
     return;
   }
 
-  renderCards(portfolioEl, works);
-  renderCards(shopEl, works.filter(function (work) { return work.status === "available"; }));
+  if (portfolioEl) renderCards(portfolioEl, listFor(portfolioEl));
+  if (shopEl) renderCards(shopEl, listFor(shopEl));
+  if (portfolioEl && portfolioEl.getAttribute("data-show") === "slider") wireSlider(portfolioEl);
 
-  document.getElementById("home").addEventListener("click", function (event) {
+  home.addEventListener("click", function (event) {
     var button = event.target.closest("[data-id]");
     if (!button) return;
     openById(button.getAttribute("data-id"));
@@ -86,9 +89,60 @@
         paypalLink: text(work && work.paypalLink),
         paypalButtonId: text(work && work.paypalButtonId),
         framedPaypalLink: text(work && work.framedPaypalLink),
-        framedPaypalButtonId: text(work && work.framedPaypalButtonId)
+        framedPaypalButtonId: text(work && work.framedPaypalButtonId),
+        home: Boolean(work && work.home),
+        shopHome: Boolean(work && work.shopHome),
+        blank: Boolean(work && work.blank) || !text(work && work.image)
       };
     });
+  }
+
+  function listFor(el) {
+    var mode = el.getAttribute("data-show") || "all";
+    if (mode === "slider") return works.filter(function (work) { return !work.blank; });
+    if (mode === "shop-home") return works.filter(function (work) { return work.shopHome; });
+    if (mode === "shop") return works.filter(function (work) { return !work.blank; });
+    return works;
+  }
+
+  function wireSlider(scroller) {
+    var prev = document.querySelector(".slider-prev");
+    var next = document.querySelector(".slider-next");
+    var drag = { on: false, x: 0, left: 0, moved: false };
+
+    function stepCard(dir) {
+      var card = scroller.querySelector(".art-card");
+      var gap = 16;
+      var amount = card ? card.getBoundingClientRect().width + gap : 280;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      scroller.scrollBy({ left: dir * amount, behavior: reduce ? "auto" : "smooth" });
+    }
+
+    if (prev) prev.addEventListener("click", function () { stepCard(-1); });
+    if (next) next.addEventListener("click", function () { stepCard(1); });
+
+    scroller.addEventListener("pointerdown", function (event) {
+      if (event.pointerType === "touch") return;
+      drag.on = true;
+      drag.moved = false;
+      drag.x = event.clientX;
+      drag.left = scroller.scrollLeft;
+    });
+    scroller.addEventListener("pointermove", function (event) {
+      if (!drag.on) return;
+      var dx = event.clientX - drag.x;
+      if (Math.abs(dx) > 6) drag.moved = true;
+      scroller.scrollLeft = drag.left - dx;
+    });
+    function endDrag() { drag.on = false; }
+    scroller.addEventListener("pointerup", endDrag);
+    scroller.addEventListener("pointercancel", endDrag);
+    scroller.addEventListener("click", function (event) {
+      if (!drag.moved) return;
+      event.preventDefault();
+      event.stopPropagation();
+      drag.moved = false;
+    }, true);
   }
 
   function renderCards(container, list) {
@@ -105,12 +159,14 @@
 
       var photo = document.createElement("span");
       photo.className = "art-photo";
-      if (work.image) {
+      if (work.image && !work.blank) {
         var img = document.createElement("img");
         img.src = work.image;
         img.alt = "";
         img.loading = "lazy";
         photo.appendChild(img);
+      } else if (work.blank) {
+        photo.classList.add("is-blank");
       } else {
         photo.classList.add("is-missing");
         photo.textContent = "Add an image";
@@ -122,11 +178,19 @@
 
       var price = document.createElement("span");
       price.className = "art-price";
-      price.textContent = priceLabel(work);
+      price.textContent = work.blank ? "\u00a0" : priceLabel(work);
 
       button.append(photo, title, price);
       container.appendChild(button);
     });
+
+    if (container.getAttribute("data-show") === "slider") {
+      var more = document.createElement("a");
+      more.className = "see-all-card";
+      more.href = "portfolio.html";
+      more.textContent = "See All \u2192";
+      container.appendChild(more);
+    }
   }
 
   function openById(id) {
@@ -142,8 +206,10 @@
 
     var img = document.getElementById("detail-image");
     var missing = document.getElementById("detail-missing");
-    if (missing) missing.hidden = Boolean(work.image);
-    if (work.image) {
+    var photoBox = img.closest(".detail-photo");
+    if (photoBox) photoBox.classList.toggle("is-blank", Boolean(work.blank));
+    if (missing) missing.hidden = Boolean(work.image) || Boolean(work.blank);
+    if (work.image && !work.blank) {
       img.hidden = false;
       img.src = work.image;
       img.alt = work.title;
@@ -238,6 +304,7 @@
   }
 
   function priceLabel(work) {
+    if (work.blank) return "";
     if (work.status === "sold") return "Sold";
     if (work.status === "not-for-sale") return "Not for sale";
     if (!work.price) return "Price on request";

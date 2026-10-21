@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio · Liz Miranda</title>
+  <meta name="description" content="The full portfolio of Liz Miranda, an oil painter in Texas. Sixteen tiles, including pieces still to come.">
+  <meta name="author" content="Liz Miranda">
+  <meta name="theme-color" content="#f3dcd6">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#home">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/mark.jpg" alt="" width="46" height="46">
+        <span>Liz Miranda</span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Me</a>
+        <a href="portfolio.html" aria-current="page">Portfolio</a>
+        <a href="shop.html">Shop</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="works page-works" aria-labelledby="page-title">
+      <div class="wrap">
+        <h1 id="page-title" class="page-title">Portfolio</h1>
+        <div id="portfolio-grid" class="art-grid" data-show="all"></div>
+      </div>
+      <noscript>
+        <p class="noscript wrap">This gallery needs JavaScript to show the paintings. The list lives in js/artworks.js.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <p class="footer-name">Liz<br>Miranda</p>
+      <p class="footer-start">
+        <span class="type-text">Type Text</span>
+        <a class="to-start" href="#top">To Start</a>
+      </p>
+      <div class="footer-contact">
+        <p>Contact:</p>
+        <a href="mailto:blank@email.com">blank@email.com</a>
+        <p class="placeholder">Placeholder — replace this address</p>
+      </div>
+      <div class="footer-social">
+        <p>If you'd like to see behind the scenes:</p>
+        <div class="socials">
+          <a href="https://example.com" aria-label="Facebook, placeholder link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 8.5h2.3V5.8h-2.3c-2.1 0-3.5 1.4-3.5 3.6v1.8H8.5v2.7h2.2V20h2.8v-6.1h2.3l.3-2.7h-2.6v-1.5c0-.7.3-1.2 1.2-1.2z"/></svg>
+          </a>
+          <a href="https://example.com" aria-label="X, placeholder link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.2 5.5h3.1l3.2 4.4 3.6-4.4h2.7l-5.1 6.1 5.6 7h-3.1l-3.6-4.8-4 4.8H5.9l5.5-6.5-5.2-6.6z"/></svg>
+          </a>
+        </div>
+        <p class="placeholder">Placeholder links</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Liz Miranda</p>
+  </footer>
+
+  <dialog id="detail" class="detail" aria-labelledby="detail-title">
+    <div class="detail-layout">
+      <div class="detail-photo">
+        <img id="detail-image" alt="">
+        <p id="detail-missing" class="missing" hidden>Image not found. Check the file name in js/artworks.js.</p>
+      </div>
+      <div class="detail-copy">
+        <button type="button" class="detail-close" id="detail-close" aria-label="Close">×</button>
+        <p class="eyebrow">Painting</p>
+        <h2 id="detail-title"></h2>
+        <dl id="detail-facts" class="detail-facts"></dl>
+        <p id="detail-description" class="detail-description"></p>
+        <div id="detail-buy" class="detail-buy"></div>
+        <div class="detail-nav">
+          <button type="button" id="detail-prev">Previous</button>
+          <button type="button" id="detail-next">Next</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/artworks.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
