@@ -2,7 +2,7 @@
 
 A one-page portfolio for Liz Miranda, an oil painter in Texas. It is plain HTML, CSS, and a little JavaScript. There is no build step. Paths are relative, so the page works when you open `index.html` on your computer and when Cloudflare serves the repository root.
 
-The pictures shipping with the site are original placeholder studies. Swap in photographs when you are ready. The letter, the questions, the email, and the social links are placeholders too, marked in the page.
+The pictures in the home tiles, the strip, the About background, and the gallery are free-license samples, listed under Sample pictures. Swap the gallery files for photographs of the real paintings and edit `js/artworks.js`. The questions, the email, and the social links are still placeholders.
 
 ## What is on the page
 
@@ -108,6 +108,34 @@ Optional. The same files can be served from the repository root with no build.
 5. Save.
 
 The empty `.nojekyll` file tells GitHub to publish the folders as they are. Wrangler does not upload that file.
+
+## Sample pictures
+
+These stand in until the real paintings are ready. The four botanical cards and the autumn still life are original drawings made for this site. Mona Lisa is public domain.
+
+| File | What it is | Credit |
+| --- | --- | --- |
+| `images/tile-about.jpg` | White roses and bridal shoes | [Unsplash](https://unsplash.com/photos/1594552072238) |
+| `images/tile-portfolio.jpg` | Pink and white roses | [Unsplash](https://unsplash.com/photos/1455659817273) |
+| `images/tile-shop.jpg` | Hands cutting a wedding cake | [Pexels, photo 19522701](https://www.pexels.com/photo/19522701/) |
+| `images/tile-contact.jpg` | A woman in a white dress | [Pexels, photo 8484213](https://www.pexels.com/photo/8484213/) |
+| `images/strip-1.jpg` | A couple holding hands | [Unsplash](https://unsplash.com/photos/1519741497674) |
+| `images/strip-2.jpg` | A white rose bouquet | [Unsplash](https://unsplash.com/photos/1468327768560) |
+| `images/strip-3.jpg` | A couple | [Unsplash](https://unsplash.com/photos/1522673607200) |
+| `images/strip-4.jpg` | A vintage camera | [Unsplash](https://unsplash.com/photos/1495707902641) |
+| `images/strip-5.jpg` | A white dress on a stone terrace | [Unsplash](https://unsplash.com/photos/1469334031218) |
+| `images/about-studio.jpg` | A woman painting outdoors | [Unsplash](https://unsplash.com/photos/1660092626225) |
+| `images/mark.jpg` | Rose, cropped for the round mark | [Unsplash](https://unsplash.com/photos/1496062031456) |
+| `images/garden-terrace.jpg` | A woman in white in a garden | [Unsplash](https://unsplash.com/photos/1591604466107) |
+| `images/on-the-canvas.jpg` | A hand painting on canvas | [Unsplash](https://unsplash.com/photos/1579965342575) |
+| `images/red-rose.jpg` | A red rose | [Unsplash](https://unsplash.com/photos/1494972308805) |
+| `images/open-sky.jpg` | A pink rose against blue sky | [Pexels, photo 26824434](https://www.pexels.com/photo/26824434/), Ellie Burgin |
+| `images/paint-water.jpg` | Brushes and colored water | [Unsplash](https://unsplash.com/photos/1460661419201) |
+| `images/mona-lisa.jpg` | Mona Lisa | Leonardo da Vinci, public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg) |
+| `images/teal-wash.jpg` | A blue watercolor | [Unsplash](https://unsplash.com/photos/1579783901586) |
+| `images/olive-leaves.svg`, `vase-study.svg`, `leaf-sprig.svg`, `leaf-sprig-two.svg`, `autumn-still.svg` | Original drawings | Made for this site |
+
+Unsplash photos are used under the [Unsplash License](https://unsplash.com/license). Pexels photos are used under the [Pexels License](https://www.pexels.com/license/).
 
 ## Fonts
 

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+  <rect width="800" height="1200" fill="#6b3a78"/>
+  <rect x="90" y="620" width="460" height="70" rx="4" fill="#8d4b32"/>
+  <rect x="110" y="600" width="420" height="36" fill="#c9844a"/>
+  <rect x="150" y="690" width="520" height="300" fill="#f4efe6"/>
+  <rect x="170" y="710" width="480" height="260" fill="#efe2cf"/>
+  <path d="M250 760 C 220 820 230 900 280 930 C 340 970 400 900 390 820 C 380 760 320 730 250 760 Z" fill="#e07a2f"/>
+  <path d="M300 790 C 310 860 340 900 360 860 C 370 820 340 790 300 790 Z" fill="#c45a22"/>
+  <rect x="470" y="430" width="70" height="280" fill="#f6e7b0"/>
+  <rect x="455" y="400" width="100" height="40" fill="#e7d48a"/>
+  <path d="M505 400 C 490 340 520 300 505 250 C 530 310 540 350 520 400 Z" fill="#f2c14e"/>
+  <path d="M505 250 C 500 220 515 190 505 160 C 525 200 530 230 515 260 Z" fill="#e25822"/>
+  <path d="M560 560 C 640 500 700 560 660 640 C 620 700 540 660 560 560 Z" fill="#d3542c"/>
+  <path d="M120 980 L 200 900 L 250 980 Z" fill="#e07a2f"/>
+  <circle cx="180" cy="240" r="90" fill="#f0c24a" opacity="0.9"/>
+</svg>
