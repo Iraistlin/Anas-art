@@ -11,14 +11,14 @@ The sections follow the layout Liz designed, top to bottom:
 1. Header — round mark and the name, then Home, About Me, Portfolio, Shop, Contact.
 2. Home — four tall pictures. About Me and Contact stay on this page. Portfolio opens `portfolio.html`. Shop opens `shop.html`.
 3. About Me — the letter, over a studio picture.
-4. Portfolio — one sideways row of the paintings that have pictures. The row ends with a **See All** tile. The small **See All** above the row opens the same page.
+4. Portfolio — one sideways row of the paintings that have pictures. Each tile shows the title only. The row ends with a **See All** tile. The small **See All** above the row opens the same page.
 5. Shop — eight paintings, four across, with the title and price under each one. **See All** opens the Shop page.
 6. Questions — six short notes. Edit them in `index.html`.
 7. Footer — name, **To Start** (back to the top), contact, and two social icons.
 
-`portfolio.html` is the full Portfolio: every entry in `js/artworks.js`, four across, including the solid black placeholders. `shop.html` is the full Shop: every painting that has a picture, with its price. The two **See All** links do not go to the same page. The header links and the home tiles use those same two pages.
+`portfolio.html` is the full Portfolio: every entry in `js/artworks.js`, four across, including the solid black placeholders. Portfolio tiles show the title only. `shop.html` is the full Shop: every painting that has a picture, with its price. The two **See All** links do not go to the same page. The header links and the home tiles use those same two pages.
 
-Click a painting to open it. The detail shows the title, year, medium, size, price, description, and, when you have filled them in, **Buy now** and **Buy framed**.
+Click a painting to open it. From the Portfolio, the detail shows the title, year, medium, size, and description. From the Shop, it also shows the price and, when you have filled them in, **Buy now** and **Buy framed**.
 
 ## Add a painting
 
@@ -39,15 +39,15 @@ A black tile is an entry with `blank: true` and `image: ""`. The title on those 
 
 `status` is one of:
 
-- `"available"` — shows the price. **Buy now** appears on the detail view when a PayPal link is set
-- `"sold"` — shows **Sold**
-- `"not-for-sale"` — shows **Not for sale**
+- `"available"` — shows the price on the Shop. **Buy now** appears on the Shop detail when a PayPal link is set
+- `"sold"` — shows **Sold** on the Shop
+- `"not-for-sale"` — shows **Not for sale** on the Shop
 
-Leave `price` as `""` when you would rather show "Price on request". Blank tiles leave the price line empty.
+Leave `price` as `""` when you would rather show "Price on request" on the Shop. The Portfolio does not show a price line.
 
 Mediums on the current list are oil on canvas panel and oil on stretched canvas.
 
-Each painting can be linked directly. On the Canvas, for example, is `portfolio.html#painting-on-the-canvas`.
+Each painting can be linked directly. On the Canvas, for example, is `portfolio.html#painting-on-the-canvas` (no price or Buy buttons) or `shop.html#painting-on-the-canvas` (price and Buy buttons).
 
 ## PayPal later
 
@@ -62,7 +62,7 @@ When you want a button on one painting:
 4. Leave the PayPal fields as `""` on paintings that should not have a button.
 5. Buttons only appear when the painting is `"available"`.
 
-`framedPrice` can be set on its own. The detail view shows the framed price, and **Buy framed** appears only when that option has a link or a button id.
+`framedPrice` can be set on its own. The Shop detail shows the framed price, and **Buy framed** appears only when that option has a link or a button id.
 
 Do not put a PayPal password, API secret, or client secret in this file. A payment link is meant to be public. A password is not.
 
