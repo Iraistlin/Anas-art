@@ -1,0 +1,12 @@
+{
+  // Static site only. No Worker script.
+  // Workers Builds for project "anas-art":
+  //   Root directory: /
+  //   Build command: (leave blank)
+  //   Deploy command: npx wrangler deploy
+  "name": "anas-art",
+  "compatibility_date": "2026-10-21",
+  "assets": {
+    "directory": "./"
+  }
+}

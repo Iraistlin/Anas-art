@@ -1,5 +1,5 @@
-/* Ana's paintings
-   ----------------
+/* Liz Miranda's paintings
+   -----------------------
    This is the only file you need to edit when a painting is added,
    sold, or given a new price. The website reads this list.
 
@@ -9,137 +9,235 @@
       like images/blue-vase.jpg
    2. Copy one of the { ... } blocks below, including the comma.
    3. Paste it where you want it to appear.
-      Higher in the list means earlier in the gallery.
+      Higher in the list means earlier in the Portfolio.
+      The Shop shows the same list, keeping only "available" paintings.
    4. Change the words, save, and refresh the page.
 
-   featured         true for the large painting at the top of the home
-                    page. Use true on only one painting. If several say
-                    true, the first one is used.
-   status           "available", "sold", or "not-for-sale"
-   price            What to show when status is "available",
-                    for example "$1,200". Use "" to show
-                    "Price on request".
-   paypalLink       A PayPal payment link. When this is filled in,
-                    a Buy now button appears on that painting.
-                    Leave "" and the button stays hidden.
-   paypalButtonId   Optional. If PayPal gave you a hosted button id
-                    and you do not have a link, paste the id here.
-                    Leave "" if you are using paypalLink or no button.
+   featured              Kept so older notes still make sense. This layout
+                         does not pin one large painting at the top.
+   status                "available", "sold", or "not-for-sale"
+   price                 What to show when status is "available",
+                         for example "$1,200". Use "" to show
+                         "Price on request".
+   framedPrice           Optional. Shown on the detail view when the
+                         painting is available. Leave "" to hide it.
+   paypalLink            A PayPal payment link. When this is filled in,
+                         a Buy now button appears on that painting.
+                         Leave "" and the button stays hidden.
+   paypalButtonId        Optional. If PayPal gave you a hosted button id
+                         and you do not have a link, paste the id here.
+                         Leave "" if you are using paypalLink or no button.
+   framedPaypalLink      Same as paypalLink, for the framed price.
+                         A second button, Buy framed, appears when set.
+   framedPaypalButtonId  Hosted button id for the framed price, if you
+                         have an id instead of a link.
 
    Do not put a PayPal password or secret key in this file.
    A payment link is public; a password is not.
 */
 window.ARTWORKS = [
   {
-    id: "harbor-morning",
-    title: "Harbor Morning",
-    year: 2024,
-    medium: "Oil on linen",
+    id: "morning-mist",
+    title: "Morning Mist",
+    year: 2025,
+    medium: "Oil on stretched canvas",
     size: "36 × 48 in",
     status: "available",
     price: "$2,400",
-    image: "images/harbor-morning.svg",
+    framedPrice: "",
+    image: "images/morning-mist.svg",
     featured: true,
-    description: "Thin bands of water under a warm sky, painted to hold the hour just after the fog lifts.",
+    description: "A pale field and a low tree line, painted in the hour before the color warms.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "red-room",
-    title: "The Red Room",
-    year: 2023,
-    medium: "Oil on canvas",
-    size: "30 × 24 in",
+    id: "blush-garden",
+    title: "Blush Garden",
+    year: 2024,
+    medium: "Oil on canvas panel",
+    size: "20 × 16 in",
     status: "sold",
     price: "",
-    image: "images/red-room.svg",
+    framedPrice: "",
+    image: "images/blush-garden.svg",
     featured: false,
-    description: "A small interior, mostly one color, with the window left as a pale rectangle.",
+    description: "A few open blooms and a lot of quiet space around them.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "orchard-january",
-    title: "Orchard in January",
+    id: "january-orchard",
+    title: "January Orchard",
     year: 2025,
-    medium: "Oil on panel",
-    size: "20 × 16 in",
+    medium: "Oil on canvas panel",
+    size: "18 × 24 in",
     status: "not-for-sale",
     price: "",
-    image: "images/orchard-january.svg",
+    framedPrice: "",
+    image: "images/january-orchard.svg",
     featured: false,
-    description: "Bare trees, a gray-green ground, and the little warmth left in the grass.",
+    description: "Bare branches against a soft sky. This one stays in the studio.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "blue-interior",
-    title: "Blue Interior",
+    id: "blue-hour",
+    title: "Blue Hour",
     year: 2024,
-    medium: "Acrylic on canvas",
-    size: "40 × 30 in",
+    medium: "Oil on stretched canvas",
+    size: "30 × 40 in",
     status: "available",
     price: "$1,800",
-    image: "images/blue-interior.svg",
+    framedPrice: "$2,250",
+    image: "images/blue-hour.svg",
     featured: false,
-    description: "A room reduced to a window, a floor, and the blue of the wall at midday.",
+    description: "The last blue in the sky, and the garden still holding a little of it.",
     paypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER-FRAMED",
+    framedPaypalButtonId: ""
   },
   {
-    id: "terrace",
-    title: "Terrace",
-    year: 2022,
-    medium: "Oil on canvas",
-    size: "18 × 24 in",
+    id: "the-terrace",
+    title: "The Terrace",
+    year: 2023,
+    medium: "Oil on stretched canvas",
+    size: "24 × 30 in",
     status: "available",
     price: "$950",
-    image: "images/terrace.svg",
+    framedPrice: "$1,150",
+    image: "images/the-terrace.svg",
     featured: false,
-    description: "Evening light on a railing, and one plant still in the sun.",
+    description: "A railing, a pot of flowers, and evening light on the floor.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "lemons",
-    title: "Still Life with Lemons",
+    id: "lemon-bough",
+    title: "Lemon Bough",
     year: 2025,
-    medium: "Oil on linen",
+    medium: "Oil on canvas panel",
     size: "16 × 20 in",
     status: "available",
     price: "$720",
-    image: "images/lemons.svg",
+    framedPrice: "",
+    image: "images/lemon-bough.svg",
     featured: false,
-    description: "Two lemons, a folded cloth, and the color of the table.",
+    description: "Leaves and a few lemons, close enough to count.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "coast-road",
-    title: "Coast Road",
+    id: "coast-path",
+    title: "Coast Path",
     year: 2023,
-    medium: "Oil on canvas",
+    medium: "Oil on stretched canvas",
     size: "24 × 36 in",
     status: "available",
     price: "$1,600",
-    image: "images/coast-road.svg",
+    framedPrice: "",
+    image: "images/coast-path.svg",
     featured: false,
-    description: "The road is a thin line between the cliff and the water.",
+    description: "A narrow path between the grass and the water.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   },
   {
-    id: "study-green",
-    title: "Study in Green",
+    id: "sage-study",
+    title: "Sage Study",
     year: 2026,
-    medium: "Gouache on paper",
+    medium: "Oil on canvas panel",
     size: "11 × 14 in",
     status: "available",
     price: "$280",
-    image: "images/study-green.svg",
+    framedPrice: "",
+    image: "images/sage-study.svg",
     featured: false,
-    description: "A quick study of green against the color of the paper.",
+    description: "A small study of stems and soft green.",
     paypalLink: "",
-    paypalButtonId: ""
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "wild-roses",
+    title: "Wild Roses",
+    year: 2024,
+    medium: "Oil on canvas panel",
+    size: "20 × 20 in",
+    status: "available",
+    price: "$860",
+    framedPrice: "$1,080",
+    image: "images/wild-roses.svg",
+    featured: false,
+    description: "Roses left a little loose, the way they grow.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "evening-garden",
+    title: "Evening Garden",
+    year: 2025,
+    medium: "Oil on stretched canvas",
+    size: "30 × 24 in",
+    status: "available",
+    price: "$1,350",
+    framedPrice: "",
+    image: "images/evening-garden.svg",
+    featured: false,
+    description: "The garden after the sun drops, still warm in the middle.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "peony-study",
+    title: "Peony Study",
+    year: 2026,
+    medium: "Oil on canvas panel",
+    size: "12 × 16 in",
+    status: "available",
+    price: "$420",
+    framedPrice: "",
+    image: "images/peony-study.svg",
+    featured: false,
+    description: "One flower, a few leaves, and the color of the ground.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
+  },
+  {
+    id: "soft-light",
+    title: "Soft Light",
+    year: 2024,
+    medium: "Oil on stretched canvas",
+    size: "28 × 36 in",
+    status: "available",
+    price: "$1,100",
+    framedPrice: "",
+    image: "images/soft-light.svg",
+    featured: false,
+    description: "A window and the pale light that sits on the wall beside it.",
+    paypalLink: "",
+    paypalButtonId: "",
+    framedPaypalLink: "",
+    framedPaypalButtonId: ""
   }
 ];

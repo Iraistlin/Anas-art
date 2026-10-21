@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="8"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="900" height="1200" fill="#f6e4de"/>
+<circle cx="430" cy="420" r="70" fill="#e7b7b4" opacity="0.85"/><circle cx="560" cy="520" r="46" fill="#f3d2cc"/>
+<path d="M 180.0 1040.0 L 329.7 335.7" fill="none" stroke="#c47d84" stroke-width="3" stroke-linecap="round"/>
+<path d="M 200.2 944.8 Q 193.9 916.4 161.4 907.3 Q 171.6 939.5 200.2 944.8 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 220.5 849.7 Q 252.1 855.2 278.7 828.5 Q 241.2 825.1 220.5 849.7 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 240.7 754.5 Q 229.1 721.1 190.3 705.9 Q 206.9 744.1 240.7 754.5 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 260.9 659.3 Q 289.2 666.0 311.7 640.8 Q 278.3 636.0 260.9 659.3 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 281.1 564.1 Q 272.2 533.3 236.5 521.1 Q 250.0 556.3 281.1 564.1 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 301.4 469.0 Q 336.4 473.2 367.2 445.0 Q 325.5 443.2 301.4 469.0 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 321.6 373.8 Q 315.2 345.4 282.8 336.3 Q 293.0 368.4 321.6 373.8 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 620.0 1100.0 L 553.1 463.5" fill="none" stroke="#c47d84" stroke-width="3" stroke-linecap="round"/>
+<path d="M 609.5 1000.5 Q 594.7 975.5 561.0 976.9 Q 580.7 1004.3 609.5 1000.5 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 599.1 901.1 Q 630.9 896.5 648.0 862.9 Q 611.2 871.3 599.1 901.1 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 588.6 801.6 Q 567.3 773.5 525.7 771.0 Q 553.3 802.2 588.6 801.6 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 578.2 702.2 Q 607.2 699.8 620.7 668.9 Q 587.5 674.6 578.2 702.2 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 567.7 602.7 Q 549.7 576.1 512.0 575.6 Q 535.6 604.9 567.7 602.7 Z" fill="#c47d84" opacity="0.92"/>
+<path d="M 557.3 503.3 Q 592.0 496.5 612.4 460.2 Q 572.3 471.3 557.3 503.3 Z" fill="#c47d84" opacity="0.92"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity="0.16"/>
+</svg>

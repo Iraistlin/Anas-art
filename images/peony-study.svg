@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="16"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="900" height="1200" fill="#f4e4dc"/>
+<circle cx="450" cy="390" r="110" fill="#f0c9c6"/><circle cx="450" cy="390" r="48" fill="#e7aeb0"/>
+<path d="M 450.0 1120.0 L 450.0 420.0" fill="none" stroke="#a86d74" stroke-width="3" stroke-linecap="round"/>
+<path d="M 450.0 1010.6 Q 437.9 984.2 404.2 982.0 Q 420.9 1011.3 450.0 1010.6 Z" fill="#a86d74" opacity="0.92"/>
+<path d="M 450.0 901.2 Q 482.1 900.0 502.6 868.4 Q 465.2 872.9 450.0 901.2 Z" fill="#a86d74" opacity="0.92"/>
+<path d="M 450.0 791.9 Q 431.8 761.6 390.6 754.8 Q 414.8 788.8 450.0 791.9 Z" fill="#a86d74" opacity="0.92"/>
+<path d="M 450.0 682.5 Q 479.1 683.2 495.8 653.9 Q 462.1 656.1 450.0 682.5 Z" fill="#a86d74" opacity="0.92"/>
+<path d="M 450.0 573.1 Q 434.8 544.8 397.4 540.3 Q 417.9 571.9 450.0 573.1 Z" fill="#a86d74" opacity="0.92"/>
+<path d="M 450.0 463.8 Q 485.2 460.6 509.4 426.7 Q 468.2 433.5 450.0 463.8 Z" fill="#a86d74" opacity="0.92"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity="0.16"/>
+</svg>

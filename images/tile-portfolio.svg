@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="22"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="800" height="1100" fill="#e7efe8"/>
+<ellipse cx="400" cy="300" rx="200" ry="140" fill="#d5e6ea" opacity="0.7" filter="url(#soft)"/>
+<ellipse cx="260" cy="620" rx="140" ry="200" fill="#8eaa86" opacity="0.65" filter="url(#soft)"/>
+<ellipse cx="540" cy="700" rx="160" ry="180" fill="#c5d3c0" opacity="0.7" filter="url(#soft)"/>
+  <rect width="800" height="1100" filter="url(#grain)" opacity="0.16"/>
+</svg>

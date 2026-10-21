@@ -1,33 +1,25 @@
 (function () {
   var raw = Array.isArray(window.ARTWORKS) ? window.ARTWORKS : [];
   var works = prepare(raw);
-  var featured = works.filter(function (work) { return work.featured; })[0] || works[0] || null;
   var current = -1;
 
-  var featuredEl = document.getElementById("featured");
-  var galleryEl = document.getElementById("gallery");
-  var countEl = document.getElementById("count");
+  var portfolioEl = document.getElementById("portfolio-grid");
+  var shopEl = document.getElementById("shop-grid");
   var dialog = document.getElementById("detail");
-  var yearEl = document.getElementById("year");
 
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-  if (!featuredEl || !galleryEl || !dialog) return;
+  if (!portfolioEl || !shopEl || !dialog) return;
 
   if (!works.length) {
-    featuredEl.innerHTML = '<p class="empty">No paintings yet. Add one in js/artworks.js, then refresh this page.</p>';
+    portfolioEl.innerHTML = '<p class="empty">No paintings yet. Add one in js/artworks.js, then refresh this page.</p>';
     return;
   }
 
-  renderFeatured(featured);
-  renderGrid(works);
-  if (countEl) {
-    countEl.textContent = works.length === 1 ? "1 painting" : works.length + " paintings";
-  }
+  renderCards(portfolioEl, works);
+  renderCards(shopEl, works.filter(function (work) { return work.status === "available"; }));
 
-  document.getElementById("main").addEventListener("click", function (event) {
+  document.getElementById("home").addEventListener("click", function (event) {
     var button = event.target.closest("[data-id]");
-    if (!button || !document.getElementById("main").contains(button)) return;
+    if (!button) return;
     openById(button.getAttribute("data-id"));
   });
 
@@ -46,9 +38,7 @@
 
   dialog.addEventListener("close", function () {
     current = -1;
-    if (location.hash.indexOf("#painting-") === 0) {
-      setHash(location.pathname + location.search);
-    }
+    if (location.hash.indexOf("#painting-") === 0) setHash(location.pathname + location.search);
   });
 
   dialog.addEventListener("keydown", function (event) {
@@ -72,7 +62,7 @@
 
   function prepare(list) {
     var seen = Object.create(null);
-    return list.map(function (work, index) {
+    return list.map(function (work) {
       var title = text(work && work.title) || "Untitled";
       var base = text(work && work.id) || slug(title) || "painting";
       var id = base;
@@ -90,110 +80,52 @@
         size: text(work && work.size),
         status: normalizeStatus(work && work.status),
         price: text(work && work.price),
+        framedPrice: text(work && work.framedPrice),
         image: imageSrc(work && work.image),
-        featured: Boolean(work && work.featured),
         description: text(work && work.description),
         paypalLink: text(work && work.paypalLink),
         paypalButtonId: text(work && work.paypalButtonId),
-        order: index
+        framedPaypalLink: text(work && work.framedPaypalLink),
+        framedPaypalButtonId: text(work && work.framedPaypalButtonId)
       };
     });
   }
 
-  function paintImage(parent, work, priority) {
-    if (!work.image) {
-      parent.classList.add("is-missing");
-      var missing = document.createElement("span");
-      missing.className = "missing";
-      missing.textContent = "Image not found. Check the images folder.";
-      parent.appendChild(missing);
+  function renderCards(container, list) {
+    container.replaceChildren();
+    if (!list.length) {
+      container.innerHTML = '<p class="empty">Nothing in this group yet.</p>';
       return;
     }
-    var img = document.createElement("img");
-    img.src = work.image;
-    img.alt = "";
-    if (priority) img.setAttribute("fetchpriority", "high");
-    else img.loading = "lazy";
-    img.addEventListener("error", function () {
-      img.alt = "Image not found. Check the file name in js/artworks.js.";
-    });
-    parent.appendChild(img);
-  }
-
-  function renderFeatured(work) {
-    featuredEl.replaceChildren();
-    if (!work) return;
-
-    var article = document.createElement("article");
-    article.className = "featured";
-
-    var photo = document.createElement("button");
-    photo.type = "button";
-    photo.className = "mat featured-photo";
-    photo.setAttribute("data-id", work.id);
-    photo.setAttribute("aria-label", "View " + work.title);
-    paintImage(photo, work, true);
-
-    var copy = document.createElement("div");
-    copy.className = "featured-copy";
-
-    var kicker = document.createElement("p");
-    kicker.className = "eyebrow";
-    kicker.textContent = "Featured painting";
-
-    var heading = document.createElement("h1");
-    heading.textContent = work.title;
-
-    var meta = document.createElement("p");
-    meta.className = "featured-meta";
-    meta.textContent = [work.year, work.medium, work.size].filter(Boolean).join(" · ");
-
-    var price = document.createElement("p");
-    price.className = "featured-price";
-    price.textContent = priceLabel(work);
-
-    var description = document.createElement("p");
-    description.className = "featured-description";
-    description.textContent = work.description;
-
-    var view = document.createElement("button");
-    view.type = "button";
-    view.className = "text-button";
-    view.setAttribute("data-id", work.id);
-    view.textContent = "View painting";
-
-    copy.append(kicker, heading, meta, price, description, view);
-    article.append(photo, copy);
-    featuredEl.appendChild(article);
-  }
-
-  function renderGrid(list) {
-    galleryEl.replaceChildren();
     list.forEach(function (work) {
       var button = document.createElement("button");
       button.type = "button";
-      button.className = "card";
+      button.className = "art-card";
       button.setAttribute("data-id", work.id);
 
-      var frame = document.createElement("span");
-      frame.className = "mat";
-      paintImage(frame, work, false);
+      var photo = document.createElement("span");
+      photo.className = "art-photo";
+      if (work.image) {
+        var img = document.createElement("img");
+        img.src = work.image;
+        img.alt = "";
+        img.loading = "lazy";
+        photo.appendChild(img);
+      } else {
+        photo.classList.add("is-missing");
+        photo.textContent = "Add an image";
+      }
 
       var title = document.createElement("span");
-      title.className = "card-title";
+      title.className = "art-title";
       title.textContent = work.title;
 
-      var meta = document.createElement("span");
-      meta.className = "card-meta";
-      var bits = [];
-      if (work.year) bits.push(work.year);
-      bits.push(priceLabel(work));
-      meta.textContent = bits.join(" · ");
-      if (work.status === "sold") meta.classList.add("is-sold");
-      if (work.status === "not-for-sale") meta.classList.add("is-held");
+      var price = document.createElement("span");
+      price.className = "art-price";
+      price.textContent = priceLabel(work);
 
-      button.append(frame, title, meta);
-      galleryEl.appendChild(button);
+      button.append(photo, title, price);
+      container.appendChild(button);
     });
   }
 
@@ -209,18 +141,16 @@
     current = index;
 
     var img = document.getElementById("detail-image");
-    var photo = img.parentElement;
     var missing = document.getElementById("detail-missing");
-    photo.classList.toggle("is-missing", !work.image);
     if (missing) missing.hidden = Boolean(work.image);
     if (work.image) {
+      img.hidden = false;
       img.src = work.image;
       img.alt = work.title;
-      img.hidden = false;
     } else {
+      img.hidden = true;
       img.removeAttribute("src");
       img.alt = "";
-      img.hidden = true;
     }
 
     document.getElementById("detail-title").textContent = work.title;
@@ -228,57 +158,60 @@
 
     var facts = document.getElementById("detail-facts");
     facts.replaceChildren();
-    [
+    var rows = [
       ["Year", work.year],
       ["Medium", work.medium],
       ["Size", work.size],
       ["Price", priceLabel(work)]
-    ].forEach(function (row) {
+    ];
+    if (work.status === "available" && work.framedPrice) rows.push(["Framed", formatPrice(work.framedPrice)]);
+    rows.forEach(function (row) {
       if (!row[1]) return;
       var wrap = document.createElement("div");
       var dt = document.createElement("dt");
       var dd = document.createElement("dd");
       dt.textContent = row[0];
       dd.textContent = row[1];
-      if (row[0] === "Price" && work.status !== "available") dd.classList.add("is-status");
       wrap.append(dt, dd);
       facts.appendChild(wrap);
     });
 
     var buy = document.getElementById("detail-buy");
     buy.replaceChildren();
-    var offer = buyOffer(work);
-    if (offer) {
-      var link = document.createElement("a");
-      link.className = "buy";
-      link.href = offer.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Buy now";
-      buy.appendChild(link);
+    var plain = buyOffer(work.paypalLink, work.paypalButtonId, work.status);
+    var framedOffer = buyOffer(work.framedPaypalLink, work.framedPaypalButtonId, work.status);
+    if (plain || framedOffer) {
+      var row = document.createElement("div");
+      row.className = "buy-row";
+      if (plain) row.appendChild(buyLink(plain, "Buy now", ""));
+      if (framedOffer) row.appendChild(buyLink(framedOffer, "Buy framed", "buy-framed"));
+      buy.appendChild(row);
       var note = document.createElement("p");
       note.className = "buy-note";
-      note.textContent = offer.placeholder
-        ? "Placeholder link — replace paypalLink before sharing this button. Checkout would open on PayPal."
+      var placeholder = (plain && plain.placeholder) || (framedOffer && framedOffer.placeholder);
+      note.textContent = placeholder
+        ? "Placeholder link — replace the PayPal fields before sharing these buttons."
         : "Checkout opens on PayPal.";
       buy.appendChild(note);
     }
-
-    var prev = document.getElementById("detail-prev");
-    var next = document.getElementById("detail-next");
-    prev.disabled = works.length < 2;
-    next.disabled = works.length < 2;
-    prev.setAttribute("aria-label", "Previous painting");
-    next.setAttribute("aria-label", "Next painting");
 
     if (!dialog.open) dialog.showModal();
     setHash("#painting-" + work.id);
   }
 
+  function buyLink(offer, label, extraClass) {
+    var link = document.createElement("a");
+    link.className = extraClass ? "buy " + extraClass : "buy";
+    link.href = offer.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = label;
+    return link;
+  }
+
   function step(delta) {
     if (current < 0 || works.length < 2) return;
-    var index = (current + delta + works.length) % works.length;
-    show(index);
+    show((current + delta + works.length) % works.length);
   }
 
   function syncFromHash() {
@@ -290,30 +223,34 @@
     openById(decodeURIComponent(hash.slice("#painting-".length)));
   }
 
-  function buyOffer(work) {
-    if (work.status !== "available") return null;
-    var link = work.paypalLink;
-    var placeholder = /placeholder/i.test(link) || /placeholder/i.test(work.paypalButtonId);
+  function buyOffer(link, buttonId, status) {
+    if (status !== "available") return null;
+    var placeholder = /placeholder/i.test(link) || /placeholder/i.test(buttonId);
     var url = httpUrl(link);
-    if (!url && work.paypalButtonId && !/placeholder/i.test(work.paypalButtonId)) {
-      url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=" +
-        encodeURIComponent(work.paypalButtonId);
-    }
-    if (!url && work.paypalButtonId && /placeholder/i.test(work.paypalButtonId)) {
-      url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PLACEHOLDER";
-    }
+    if (!url && buttonId && !/placeholder/i.test(buttonId)) url = hosted(buttonId);
+    if (!url && buttonId && /placeholder/i.test(buttonId)) url = hosted("PLACEHOLDER");
     if (!url) return null;
     return { url: url, placeholder: placeholder };
+  }
+
+  function hosted(id) {
+    return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=" + encodeURIComponent(id);
   }
 
   function priceLabel(work) {
     if (work.status === "sold") return "Sold";
     if (work.status === "not-for-sale") return "Not for sale";
     if (!work.price) return "Price on request";
-    if (/^\$/.test(work.price) || /[a-z]/i.test(work.price)) return work.price;
-    var amount = Number(work.price.replace(/,/g, ""));
+    return formatPrice(work.price);
+  }
+
+  function formatPrice(price) {
+    var raw = text(price);
+    if (!raw) return "";
+    if (/^\$/.test(raw) || /[a-z]/i.test(raw)) return raw;
+    var amount = Number(raw.replace(/,/g, ""));
     if (Number.isFinite(amount)) return "$" + amount.toLocaleString("en-US");
-    return work.price;
+    return raw;
   }
 
   function normalizeStatus(value) {
@@ -352,10 +289,7 @@
   }
 
   function slug(value) {
-    return String(value || "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
+    return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
 
   function text(value) {
