@@ -39,15 +39,16 @@
 }
 
 :root {
-  --blush: #f0d3cb;
-  --hero: #f3d7d0;
-  --rose: #d4a39a;
-  --mauve: #c4a3b5;
+  --blush: #d4a39a;
+  --hero: var(--blush);
+  --rose: #b67f77;
+  --mauve: #9a7896;
   --name: #6a4a56;
-  --footer-name: #c9a4b3;
+  --footer-name: #4a2a34;
+  --plum: #5a3844;
   --cream: #ffffff;
-  --faq-body: #8d5c64;
-  --faq-mark: #7d8c94;
+  --faq-body: #321c28;
+  --faq-mark: #f4f7f8;
   --ink: #5c454c;
   --serif: "Cormorant Garamond", Palatino, "Palatino Linotype", Georgia, serif;
   --page-max: 1120px;
@@ -166,7 +167,7 @@ nav {
 }
 
 nav a {
-  color: #6d534c;
+  color: var(--plum);
   font-size: 1.22rem;
   font-style: italic;
   font-weight: 300;
@@ -205,7 +206,7 @@ nav a:focus-visible {
   height: auto;
   aspect-ratio: 2 / 3;
   object-fit: cover;
-  background: #e7d0c8;
+  background: var(--blush);
 }
 
 .tile span {
@@ -224,7 +225,7 @@ nav a:focus-visible {
 }
 
 .see-all {
-  color: #6a534e;
+  color: var(--plum);
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 400;
@@ -243,7 +244,7 @@ nav a:focus-visible {
 .letter {
   width: min(640px, calc(100% - 2 * var(--page-gutter)));
   padding: clamp(1.7rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 2.4rem);
-  background: rgba(236, 196, 188, 0.86);
+  background: color-mix(in srgb, var(--rose) 92%, transparent);
   color: #fffaf7;
   text-align: center;
 }
@@ -463,7 +464,7 @@ nav a:focus-visible {
 .site-footer {
   background: var(--blush);
   padding: var(--space) 0;
-  color: var(--name);
+  color: var(--plum);
 }
 
 .footer-grid {
@@ -491,7 +492,7 @@ nav a:focus-visible {
 }
 
 .type-text {
-  color: #dcc6c2;
+  color: var(--plum);
   font-size: 1.05rem;
   font-weight: 300;
   letter-spacing: 0.02em;
@@ -530,7 +531,7 @@ nav a:focus-visible {
 
 .placeholder {
   margin-top: 0.15rem;
-  color: #a56b72;
+  color: var(--plum);
   font-size: 0.95rem;
   font-style: italic;
   font-weight: 300;
@@ -562,7 +563,7 @@ nav a:focus-visible {
   margin: 1.35rem auto 0;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(92, 69, 76, 0.22);
-  color: #7d656c;
+  color: var(--plum);
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
@@ -571,7 +572,7 @@ nav a:focus-visible {
 .noscript,
 .missing,
 .empty {
-  color: #7d656c;
+  color: var(--plum);
 }
 
 .detail {
@@ -701,7 +702,7 @@ nav a:focus-visible {
 .buy-note {
   max-width: 34rem;
   margin: 0.45rem 0 0;
-  color: #a56b72;
+  color: var(--plum);
   font-size: 0.98rem;
   font-style: italic;
   font-weight: 300;
